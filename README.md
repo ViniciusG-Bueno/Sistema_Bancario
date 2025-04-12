@@ -24,12 +24,4 @@ Responsável pela **comunicação com o banco de dados**.
 ### `src/services`
 Contém as **regras de negócio** do sistema. Classes que executam ações no sistema.
 
-## 🧠 Conceitos aplicados
-- Programação orientada a objetos (POO)
-- Herança e polimorfismo
-- Encapsulamento
-- Interfaces
-- Exceções personalizadas
-- Organização em pacotes
-
 ---
