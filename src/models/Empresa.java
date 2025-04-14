@@ -3,14 +3,13 @@ package models;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Empresa {
     private String nome;
     private String cnpj;
     private List<String> emails;
     private List<Funcionario> funcionarios = new ArrayList<>();
-    private HashMap<String, Produto> produtos = new HashMap<>();
+    private HashMap<Integer, Produto> produtos = new HashMap<>();
 
 
     public Empresa(String nome, String cnpj) {
@@ -24,7 +23,11 @@ public class Empresa {
     }
 
     public void removerFuncionario(Funcionario funcionario){
-        this.funcionarios.remove(funcionario);
+        if(funcionarios.remove(funcionario)){
+            System.out.println("Funcionário removido.");
+        } else {
+            System.out.println("Funcionário não encontrado.");
+        }
     }
 
     public void exibirFuncionarios(){
@@ -42,7 +45,13 @@ public class Empresa {
     }
 
     public boolean removerEmail(String email){
-        return emails.remove(email);
+        if(emails.remove(email)) {
+            System.out.println("E-mail removido com sucesso.");
+            return true;
+        } else {
+            System.out.println("E-mail não encontrado na lista.");
+            return false;
+        }
     }
 
     public void exibirEmails(){
@@ -52,11 +61,17 @@ public class Empresa {
     }
 
     public void cadastrarProduto(Produto produto){
-        this.produtos.put(produto.getNome(), produto);
+        this.produtos.put(produto.getCodigo(), produto);
     }
 
     public void removerProduto(Produto produto){
-        produtos.remove(produto.getNome());
+        Produto removido = produtos.remove(produto.getCodigo());
+        if (removido != null){
+            System.out.println("Produto removido.");
+
+        } else {
+            System.out.println("Produto não encontrado.");
+        }
     }
 
     public void exibirProdutos(){
@@ -76,6 +91,9 @@ public class Empresa {
         .forEach(produto -> produto.exibirInformacoes());
     }
 
+    /**
+     * @param codigo
+     */
     public void buscarProdutoPorCodigo(int codigo){
         produtos.values().stream()
         .filter(produto -> produto.getCodigo() == codigo)

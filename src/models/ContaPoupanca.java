@@ -1,7 +1,7 @@
 package models;
 
 public class ContaPoupanca extends ContaBancaria implements Tributavel {
-    private static double rendimentoMensal;
+    private static double rendimentoMensal = 0.5;
 
     public ContaPoupanca(String titular, double saldo, int conta, int agencia, String senha) {
         super(titular, saldo, conta, agencia, senha);
@@ -19,8 +19,10 @@ public class ContaPoupanca extends ContaBancaria implements Tributavel {
 
     @Override
     public double calcularIR() {
-        // Método não implementado
-        throw new UnsupportedOperationException("Unimplemented method 'calcularIR'");
+        double saldoAtual = this.getSaldo();
+        double rendimento = saldoAtual * (rendimentoMensal / 100);
+        double imposto = rendimento * 0.15; // 15% sobre o rendimento
+        return imposto;
     }
 
 }

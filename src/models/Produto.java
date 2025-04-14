@@ -29,7 +29,7 @@ public class Produto {
         return this.quantidade;
     }
 
-    public void exibirInformacoes(){
+  public void exibirInformacoes(){
         System.out.println("Nome: " + this.getNome());
         System.out.println("Codigo: " + this.getCodigo());
         System.out.println("Valor: " + this.getValor());

@@ -1,6 +1,7 @@
 package models;
 
-import custom.exceptions.SaqueException;
+import custom.exceptions.SaldoInsuficienteException;
+import custom.exceptions.ValorNegativoException;
 
 public class ContaCorrente extends ContaBancaria {
 
@@ -10,10 +11,15 @@ public class ContaCorrente extends ContaBancaria {
         super(titular, saldo, conta, agencia, senha);
     }
 
-    public double sacar(double valor) throws SaqueException{
+    public double sacar(double valor) throws SaldoInsuficienteException, ValorNegativoException{
         if(this.getSaldo() < valor + tarifa){
-            throw new SaqueException();
+            throw new SaldoInsuficienteException();
         }
+
+        if (valor <= 0){
+            throw new ValorNegativoException("O valor do saque deve ser maior que zero.");
+        }
+        
         this.setSaldo(this.getSaldo() - (valor + tarifa));
         return this.getSaldo();
         }

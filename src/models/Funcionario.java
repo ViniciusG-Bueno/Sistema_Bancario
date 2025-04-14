@@ -28,8 +28,7 @@ public class Funcionario extends Pessoa implements Tributavel {
 
     @Override
     public double calcularIR() {
-        // Método não implementado
-        throw new UnsupportedOperationException("Unimplemented method 'calcularIR'");
+        return this.salario * 0.15;
     }
 
 }

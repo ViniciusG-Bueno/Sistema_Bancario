@@ -1,6 +1,7 @@
 package models;
 
-import custom.exceptions.SaqueException;
+import custom.exceptions.SaldoInsuficienteException;
+import custom.exceptions.ValorNegativoException;
 
 public abstract class ContaBancaria {
     private String titular;
@@ -30,12 +31,19 @@ public abstract class ContaBancaria {
         return this.saldo;
     }
 
-    public double sacar(double valor) throws SaqueException{
+    public double sacar(double valor) throws SaldoInsuficienteException, ValorNegativoException{
         if(this.saldo < valor){
-            throw new SaqueException();
+            throw new SaldoInsuficienteException();
         }
+
+        if (valor <= 0){
+            throw new ValorNegativoException("O valor do saque deve ser maior que zero.");
+        }
+
         this.saldo -= valor;
         return this.saldo;
+
+
     }
 
     public double exibirSaldo(){
