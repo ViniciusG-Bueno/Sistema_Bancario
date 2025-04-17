@@ -7,8 +7,12 @@ public class ContaCorrente extends ContaBancaria {
 
     private static double tarifa; 
 
-    public ContaCorrente(String titular, double saldo, int conta, int agencia, String senha) {
-        super(titular, saldo, conta, agencia, senha);
+    public ContaCorrente(int id, String titular, double saldo, int conta, int agencia, String senha) {
+        super(id, titular, saldo, conta, agencia, senha);
+    }
+
+    public ContaCorrente(int id){
+        super(id);
     }
 
     public double sacar(double valor) throws SaldoInsuficienteException, ValorNegativoException{

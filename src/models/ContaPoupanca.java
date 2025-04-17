@@ -3,8 +3,12 @@ package models;
 public class ContaPoupanca extends ContaBancaria implements Tributavel {
     private static double rendimentoMensal = 0.5;
 
-    public ContaPoupanca(String titular, double saldo, int conta, int agencia, String senha) {
-        super(titular, saldo, conta, agencia, senha);
+    public ContaPoupanca(int id, String titular, double saldo, int conta, int agencia, String senha) {
+        super(id, titular, saldo, conta, agencia, senha);
+    }
+
+    public ContaPoupanca(int id){
+        super(id);
     }
 
     public void aplicarRendimentoMensal(){

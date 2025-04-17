@@ -13,17 +13,21 @@ public class Funcionario extends Pessoa implements Tributavel {
     }
 
     public double getSalario(){
-        System.out.println("Salario: " + this.salario); 
+        // System.out.println("Salario: " + this.salario); 
         return this.salario;
     }
 
     public double getSalario(double bonus){
-        System.out.println("Salario com bonus: " + (this.salario + bonus)); 
+        // System.out.println("Salario com bonus: " + (this.salario + bonus)); 
         return this.salario + bonus;
     }
 
     public ContaBancaria getContaSalario(){
         return this.contaSalario;
+    }
+
+    public String getCargo(){
+        return this.cargo;
     }
 
     @Override
