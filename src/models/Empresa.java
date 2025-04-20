@@ -18,6 +18,27 @@ public class Empresa {
         this.emails = new ArrayList<>();
     }
 
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public String getCnpj() {
+        return this.cnpj;
+    }
+
+    public void setCnpj(String cnpj){
+        this.cnpj = cnpj;
+    }
+
+    public void setEmails(List<String> emails) {
+        this.emails = emails;
+    }
+    
+
     public void cadastrarFuncionario(Funcionario funcionario){
         this.funcionarios.add(funcionario);
     }

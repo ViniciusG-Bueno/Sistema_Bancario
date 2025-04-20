@@ -15,6 +15,15 @@ public class ContaCorrente extends ContaBancaria {
         super(id);
     }
 
+    public double getTarifa(){
+        return this.tarifa;
+    }
+    
+    public void setTarifa (double tarifa){
+        this.tarifa = tarifa;
+    }
+
+
     public double sacar(double valor) throws SaldoInsuficienteException, ValorNegativoException{
         if(this.getSaldo() < valor + tarifa){
             throw new SaldoInsuficienteException();

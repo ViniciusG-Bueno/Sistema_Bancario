@@ -1,5 +1,1 @@
-package DAO;
-
-public class ContaPoupancaDAO {
-
-}
+///Implementada na classe ContaBancariaDAO, já que foi utilizada uma única tabela para tratar os tipos de contas.

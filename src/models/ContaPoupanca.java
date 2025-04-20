@@ -11,15 +11,21 @@ public class ContaPoupanca extends ContaBancaria implements Tributavel {
         super(id);
     }
 
+    
+    public double getRendimentoMensal(){
+        return this.rendimentoMensal;
+    }
+
+    public void setRendimentoMensal(double rendimentoMensal){
+        this.rendimentoMensal = rendimentoMensal;
+    }
+
     public void aplicarRendimentoMensal(){
         double saldoAtual = this.getSaldo();
         double rendimento = saldoAtual * (rendimentoMensal / 100);
         this.setSaldo(saldoAtual + rendimento);
     }
 
-    public static void setRendimentoMensal(double rendimentoMensal) {
-        ContaPoupanca.rendimentoMensal = rendimentoMensal;
-    }
 
     @Override
     public double calcularIR() {

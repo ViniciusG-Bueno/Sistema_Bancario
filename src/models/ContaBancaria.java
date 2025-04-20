@@ -24,6 +24,38 @@ public abstract class ContaBancaria {
         this.setId(id);
     }
 
+    public int getConta(){
+        return this.conta;
+    }
+
+    public void setConta(int conta){
+        this.conta = conta;
+    }
+
+    public int getAgencia(){
+        return this.agencia;
+    }
+
+    public void setAgencia(int agencia){
+        this.agencia = agencia;
+    }
+
+    public String getSenha(){
+        return this.senha;
+    }
+
+    public void setSenha(String senha){
+        this.senha = senha;
+    }
+
+    public String getTitular(){
+        return this.titular;
+    }
+
+    public void setTitular(String titular){
+        this.titular = titular;
+    }
+
     public double getSaldo(){
         return this.saldo;
     }
